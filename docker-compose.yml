@@ -1,0 +1,14 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/home/app
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
